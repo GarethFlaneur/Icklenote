@@ -1,0 +1,464 @@
+object Form1: TForm1
+  Left = 519
+  Height = 969
+  Top = 169
+  Width = 1700
+  Caption = 'IckleNote'
+  ClientHeight = 969
+  ClientWidth = 1700
+  DesignTimePPI = 144
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  object FileList: TListBox
+    Left = 10
+    Height = 949
+    Top = 10
+    Width = 280
+    Align = alLeft
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Bottom = 8
+    BorderSpacing.Around = 2
+    ItemHeight = 0
+    ParentFont = False
+    Style = lbOwnerDrawFixed
+    TabOrder = 0
+    OnClick = FileListClick
+    OnDrawItem = FileListDrawItem
+  end
+  object PageControl1: TPageControl
+    AnchorSideLeft.Control = Splitter1
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 292
+    Height = 911
+    Top = 10
+    Width = 1399
+    ActivePage = DocumentTab
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 48
+    MultiLine = True
+    Options = [nboMultiLine]
+    ParentFont = False
+    PopupMenu = PopupMenu1
+    TabHeight = 35
+    TabIndex = 0
+    TabOrder = 1
+    object DocumentTab: TTabSheet
+      AnchorSideBottom.Control = PageControl1
+      AnchorSideBottom.Side = asrBottom
+      Caption = '   Document   '
+      ClientHeight = 868
+      ClientWidth = 1391
+      ParentFont = False
+      object Document: TRichMemo
+        AnchorSideLeft.Control = DocumentTab
+        AnchorSideTop.Control = DocumentTab
+        AnchorSideRight.Control = DocumentTab
+        AnchorSideBottom.Control = DocumentTab
+        Left = 2
+        Height = 868
+        Hint = 'Ctrl + Click to open link'
+        Top = 0
+        Width = 1389
+        Align = alClient
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 2
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        HideSelection = False
+        Lines.Strings = (
+          ''
+        )
+        OnClick = DocumentClick
+        OnKeyDown = DocumentKeyDown
+        OnMouseMove = DocumentMouseMove
+        OnMouseWheel = TRichMemoMouseWheel
+        ParentFont = False
+        PopupMenu = PopupMenu1
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        WantTabs = True
+        WordWrap = False
+        ZoomFactor = 1
+      end
+    end
+    object SearchTab: TTabSheet
+      Caption = '   Search Results   '
+      ClientHeight = 868
+      ClientWidth = 1391
+      ParentFont = False
+      object SearchFile: TRichMemo
+        Left = 2
+        Height = 800
+        Top = 0
+        Width = 1389
+        HideSelection = False
+        Lines.Strings = (
+          'SearchFile'
+        )
+        OnMouseWheel = TRichMemoMouseWheel
+        ParentFont = False
+        TabOrder = 1
+        WordWrap = False
+        ZoomFactor = 1
+      end
+      object Search: TRichMemo
+        AnchorSideLeft.Control = SearchTab
+        AnchorSideTop.Control = SearchTab
+        AnchorSideRight.Control = SearchTab
+        Left = 2
+        Height = 868
+        Top = 0
+        Width = 1389
+        Align = alClient
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 2
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -21
+        Font.Name = 'Consolas'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        HideSelection = False
+        Lines.Strings = (
+          ''
+        )
+        OnClick = SearchDblClick
+        OnMouseMove = SearchMouseMove
+        OnMouseWheel = TRichMemoMouseWheel
+        ParentFont = False
+        PopupMenu = PopupMenu1
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        ZoomFactor = 1
+      end
+    end
+    object HelpTab: TTabSheet
+      AnchorSideLeft.Control = SearchTab
+      AnchorSideTop.Control = SearchTab
+      AnchorSideRight.Control = SearchTab
+      Caption = '  Settings  '
+      ClientHeight = 868
+      ClientWidth = 1391
+      ParentFont = False
+      object ChangeFont: TButton
+        Left = 246
+        Height = 35
+        Top = 40
+        Width = 420
+        Caption = 'Change Font'
+        ParentFont = False
+        TabOrder = 0
+        OnClick = ChangeFontClick
+      end
+      object PlainTextFontLabel1: TLabel
+        Left = 78
+        Height = 25
+        Top = 45
+        Width = 118
+        Caption = 'Plain Text Font '
+        ParentColor = False
+        ParentFont = False
+      end
+      object AutoSaveLabel: TLabel
+        Left = 78
+        Height = 25
+        Top = 126
+        Width = 81
+        Caption = 'Auto Save'
+        ParentColor = False
+        ParentFont = False
+      end
+      object AutoSaveCheckBox: TCheckBox
+        Left = 246
+        Height = 24
+        Top = 126
+        Width = 25
+        ParentFont = False
+        TabOrder = 1
+      end
+      object WordWrapLabel: TLabel
+        Left = 78
+        Height = 25
+        Top = 201
+        Width = 83
+        Caption = 'Wordwrap'
+        ParentColor = False
+        ParentFont = False
+      end
+      object WordWrapCheckBox: TCheckBox
+        Left = 246
+        Height = 24
+        Top = 201
+        Width = 25
+        ParentFont = False
+        TabOrder = 2
+        OnChange = WordWrapCheckBoxChange
+      end
+      object StaticText1: TStaticText
+        Left = 78
+        Height = 400
+        Top = 392
+        Width = 498
+        Caption = 'TIPS'#13#10#13#10'In the Document tab:'#13#10'- Ctrl + Scrollwheel to zoom'#13#10'- Ctrl + Click to open web links '#13#10'- Ctrl + S to Save'#13#10'- F5 to insert date'#13#10'- F6 to insert time'#13#10#13#10'In the Search tab:'#13#10'- Click on blue text to jump to line in file'#13#10#13#10'General:'#13#10'- Click + Button to create new file'#13#10'- Click Rescan to reload file list'
+        Color = clWhite
+        ParentColor = False
+        TabOrder = 3
+        Transparent = False
+        OnClick = StaticText1Click
+      end
+    end
+  end
+  object Splitter1: TSplitter
+    Left = 292
+    Height = 969
+    Top = 0
+    Width = 4
+    DoubleBuffered = False
+    ParentDoubleBuffered = False
+  end
+  object SearchBox: TLabeledEdit
+    AnchorSideLeft.Control = SearchButton
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = SearchButton
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 398
+    Height = 35
+    Top = 925
+    Width = 200
+    Anchors = [akLeft, akBottom]
+    AutoSize = False
+    BorderSpacing.Left = 6
+    BorderSpacing.Top = 1
+    BorderSpacing.Bottom = 9
+    EditLabel.Height = 35
+    EditLabel.Width = 5
+    EditLabel.Caption = ' '
+    EditLabel.ParentColor = False
+    EditLabel.ParentFont = False
+    LabelPosition = lpLeft
+    ParentFont = False
+    TabOrder = 2
+    OnEditingDone = SearchButtonClick
+  end
+  object SearchButton: TButton
+    AnchorSideLeft.Control = Splitter1
+    AnchorSideTop.Control = PageControl1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 296
+    Height = 35
+    Hint = 'Search all documents'
+    Top = 925
+    Width = 96
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 8
+    BorderSpacing.Bottom = 9
+    Caption = '  Search  '
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    OnClick = SearchButtonClick
+  end
+  object NewFile: TButton
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 1642
+    Height = 35
+    Hint = 'Create New File'
+    Top = 925
+    Width = 49
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 9
+    Caption = '+'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -28
+    Font.Name = 'Courier'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    OnClick = NewFileClick
+  end
+  object FindButton: TButton
+    AnchorSideLeft.Control = SearchBox
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 623
+    Height = 35
+    Hint = 'Find within document'
+    Top = 925
+    Width = 96
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 25
+    BorderSpacing.Top = 8
+    BorderSpacing.Bottom = 9
+    Caption = 'Highlight'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    OnClick = FindButtonClick
+  end
+  object FindBox: TLabeledEdit
+    AnchorSideLeft.Control = FindButton
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = FindButton
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 725
+    Height = 35
+    Top = 925
+    Width = 200
+    Anchors = [akLeft, akBottom]
+    AutoSize = False
+    BorderSpacing.Left = 6
+    BorderSpacing.Top = 1
+    BorderSpacing.Bottom = 9
+    EditLabel.Height = 35
+    EditLabel.Width = 5
+    EditLabel.Caption = ' '
+    EditLabel.ParentColor = False
+    EditLabel.ParentFont = False
+    LabelPosition = lpLeft
+    ParentFont = False
+    TabOrder = 7
+    OnEditingDone = FindButtonClick
+  end
+  object Rescan: TButton
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 1568
+    Height = 35
+    Hint = 'Rescan folder & reload file'
+    Top = 925
+    Width = 70
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 62
+    BorderSpacing.Bottom = 9
+    Caption = 'Rescan'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -18
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+    OnClick = RescanClick
+  end
+  object FontDialog1: TFontDialog
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -32
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    MinFontSize = 0
+    MaxFontSize = 0
+    Left = 488
+    Top = 360
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 600
+    Top = 360
+    object CutText: TMenuItem
+      Caption = 'Cut'
+      OnClick = CutTextClick
+    end
+    object CopyText: TMenuItem
+      Caption = 'Copy'
+      OnClick = CopyTextClick
+    end
+    object PasteText: TMenuItem
+      Caption = 'Paste'
+      OnClick = PasteTextClick
+    end
+    object MenuItem2: TMenuItem
+      Caption = '-'
+    end
+    object SearchText: TMenuItem
+      Caption = 'Search (All Documents)'
+      OnClick = SearchTextClick
+    end
+    object HighlightText: TMenuItem
+      Caption = 'Highlight Text'
+      OnClick = HighlightTextClick
+    end
+    object MenuItem1: TMenuItem
+      Caption = '-'
+    end
+    object GoogleSearch: TMenuItem
+      Caption = 'Search in Google'
+      OnClick = GoogleSearchClick
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object OpenExternal: TMenuItem
+      Caption = 'Open File in External Editor'
+      OnClick = OpenExternalClick
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 376
+    Top = 360
+    object FileMenu: TMenuItem
+      Caption = 'File'
+      object Save: TMenuItem
+        Caption = 'Save'
+        ShortCut = 16467
+        OnClick = SaveClick
+      end
+    end
+    object EditMenu: TMenuItem
+      Caption = 'Edit'
+      object EditCopy: TMenuItem
+        Caption = 'Copy'
+        ShortCut = 16451
+        OnClick = CopyTextClick
+      end
+      object EditPaste: TMenuItem
+        Caption = 'Paste'
+        ShortCut = 16470
+        OnClick = PasteTextClick
+      end
+      object EditOpenExternal: TMenuItem
+        Caption = 'Open in External Editor'
+        ShortCut = 16453
+        OnClick = OpenExternalClick
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    Title = 'Name of new file'
+    DefaultExt = '.txt'
+    Left = 720
+    Top = 360
+  end
+end
