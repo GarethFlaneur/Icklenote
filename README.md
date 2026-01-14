@@ -21,6 +21,10 @@ To be expanded.
 
 ### 1) Document Tab
 
+- Click on the filelist on the left hand side to load the file
+- Ctrl + scrollwheel to zoom in and out
+- Hightlight text and right click for menu.  
+
 ![image alt](https://github.com/GarethFlaneur/Icklenote/blob/bb21c6244e83702fb8c91a573f2954db8755b3ca/Screenshots/Document%20Tab.JPG)
 
 ### 2) Search Results Tab
