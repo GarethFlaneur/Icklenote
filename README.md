@@ -17,3 +17,5 @@ You can also use RTF files, but this is not very tested so there may be problems
 
 To be expanded. 
 
+![image alt](https://github.com/GarethFlaneur/Icklenote/blob/bb21c6244e83702fb8c91a573f2954db8755b3ca/Screenshots/Document%20Tab.JPG)
+
