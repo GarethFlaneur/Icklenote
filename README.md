@@ -29,6 +29,9 @@ To be expanded.
 
 ### 2) Search Results Tab
 
+- Click on the blue links to jump to the line in the document.
+- Matches are highlighted in yellow.
+
 ![image alt](https://github.com/GarethFlaneur/Icklenote/blob/962765f78487f3236a6538492bf3813f0e6dc3ac/Screenshots/Search%20Tab.JPG)
 
 ### 3) Settings Tab
